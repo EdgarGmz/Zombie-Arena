@@ -6,9 +6,11 @@
 2. Abre el proyecto en VS Code.
 3. Instala las extensiones recomendadas cuando VS Code lo sugiera.
 4. Ejecuta la tarea `Repo Doctor` desde Terminal > Run Task.
-5. Abre `Zombie Arena.yyp` en GameMaker Studio y ejecuta el juego.
+5. Ejecuta la tarea `GML Style Check` desde Terminal > Run Task.
+6. Abre `Zombie Arena.yyp` en GameMaker Studio y ejecuta el juego.
 
 ## Notas
 
 - Este repositorio usa saltos de linea LF.
 - Los archivos temporales de GameMaker no se deben versionar.
+- El estandar de estilo de GML esta en `docs/CODE_STYLE_GML.md`.

@@ -9,7 +9,7 @@ if (!instance_exists(obj_pause_screen))
 	{
 		// Reduce the image alpha.
 		image_alpha -= delta_time * 0.000001 * 2;
-		
+
 		// Checks if the image alpha is less than or equal to zero.
 		if (image_alpha <= 0)
 		{

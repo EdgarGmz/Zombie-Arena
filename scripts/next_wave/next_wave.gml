@@ -1,5 +1,5 @@
 // Declare a function to set up the next wave.
-function next_wave() 
+function next_wave()
 {
 	// Subtract experience goal from current experience.
 	// Basically this is the cost of levelling up.

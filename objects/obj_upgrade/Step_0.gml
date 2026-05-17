@@ -13,7 +13,7 @@ if (_max_pads > 0)
 	{
 		// Sets the gamepads deadzone.
 		gamepad_set_axis_deadzone(0, 0.5);
-		
+
 		// Checks if the gamepads left stick is moved.
 		if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
 		{
@@ -26,7 +26,7 @@ if (_max_pads > 0)
 					// Sets the upgrade to glow.
 					mouse_over = true;
 					// Tells the other upgrades a controller has been used.
-					global.is_mouse = false;	
+					global.is_mouse = false;
 				}
 			}
 			// Checks if on the right side.
@@ -38,7 +38,7 @@ if (_max_pads > 0)
 					// Sets the upgrade to glow.
 					mouse_over = true;
 					// Tells the other upgrades a controller has been used.
-					global.is_mouse = false;		
+					global.is_mouse = false;
 				}
 			}
 			else
@@ -52,7 +52,7 @@ if (_max_pads > 0)
 						// Sets the upgrade to glow.
 						mouse_over = true;
 						// Tells the other upgrades a controller has been used.
-						global.is_mouse = false;	
+						global.is_mouse = false;
 					}
 				}
 			}
@@ -60,9 +60,9 @@ if (_max_pads > 0)
 		else
 		{
 			// Tells variable controller isn't being used.
-			global.is_mouse = true;	
+			global.is_mouse = true;
 		}
-		
+
 		// Checks if gamepad button has been pressed.
 		if (gamepad_button_check_pressed(0, gp_face1))
 		{
@@ -75,7 +75,7 @@ if (_max_pads > 0)
 	else
 	{
 		// Tells upgrades no controllers available.
-		global.is_mouse = true;	
+		global.is_mouse = true;
 	}
 }
 else
@@ -97,10 +97,10 @@ if (roll_alpha >= 0)
 {
 	// Stops select highlight from occuring.
 	mouse_over = false;
-	
+
 	// Decreases life timer.
 	roll_life -= delta_time * 0.000001;
-	
+
 	// Checks if life timer is finished
 	if (roll_life <= 0)
 	{
@@ -117,11 +117,11 @@ if (mouse_over)
 	{
 		// Play upgrade sound effect.
 		audio_play_sound(snd_click, 0, false);
-		
+
 		// Sets click state to true.
 		is_clicked = true;
 	}
-	
+
 	// Checks if mouse has been clicked on this button.
 	if (is_clicked)
 	{
@@ -130,24 +130,24 @@ if (mouse_over)
 		{
 			// Play select sound.
 			audio_play_sound(snd_ui_select, 0, false);
-	
+
 			// Set variables for upgrade stats.
 			var _object = ds_map_find_value(upgrade_data, "object");
 			var _key = ds_map_find_value(upgrade_data, "key");
 			var _amount = ds_map_find_value(upgrade_data, "amount");
-	
+
 			// Upgrade components stats.
 			_object[? _key] += _amount;
-	
+
 			// Destroys upgrades.
 			with(obj_upgrade) instance_destroy();
-	
+
 			// Destroys upgrade screen.
 			with(obj_upgrade_screen) instance_destroy();
-	
+
 			// Destroys reroll button.
 			with(obj_button_reroll) instance_destroy();
-	
+
 			// Plays music sound effect.
 			audio_play_sound(snd_music_game, 0, true);
 		}

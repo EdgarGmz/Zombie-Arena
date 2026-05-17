@@ -10,14 +10,14 @@ if (sprite_index != spr_hero_hit)
 	_text.text = 1;
 	// Set colour for popup.
 	_text.color = c_red;
-	
+
 	// Change sprite index to hit.
 	sprite_index = spr_hero_hit;
 	// Reset image index.
 	image_index = 0;
-	
+
 	// With the enemy...
-	with (other) 
+	with (other)
 	{
 		// Check if enemy is walking pigun.
 		if (sprite_index == spr_pigun_walk)

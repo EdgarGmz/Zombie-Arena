@@ -18,5 +18,5 @@ if (!global.paused)
 else
 {
 	// Sets the speed to zero.
-	speed = 0;	
+	speed = 0;
 }

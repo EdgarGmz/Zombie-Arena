@@ -8,5 +8,5 @@ if (owner_object != noone && instance_exists(owner_object))
 else
 {
 	// Destroy object.
-	instance_destroy();	
+	instance_destroy();
 }

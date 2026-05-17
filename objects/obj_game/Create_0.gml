@@ -86,10 +86,10 @@ spawn_enemy = function()
 	// Then we get the position 1200 pixels away
 	// from the hero on the y axis.
 	var _y = obj_hero.y + lengthdir_y(1200, _dir);
-	
+
 	// Set a baseline variable to track how far the ray has to go to be outside the camera's view
 	var _i = 1;
-	
+
 	// Find if the spawn point is within the camera's view (plus a border of 100 units for the sprites)
 	// If it is, move it further so it is outside the view
 	while(camera_get_view_x(view_camera[view_current]) - 100 < _x &&  _x < camera_get_view_x(view_camera[view_current]) + camera_get_view_width(view_camera[view_current]) + 100 &&
@@ -98,7 +98,7 @@ spawn_enemy = function()
 		// Reset the spawn coordinates to 400 units further in that direction
 		_x = obj_hero.x + lengthdir_x(1200 + _i * 400, _dir);
 		_y = obj_hero.y + lengthdir_y(1200 + _i * 400, _dir);
-		
+
 		// Increase the number of increments have been needed
 		_i++;
 	}

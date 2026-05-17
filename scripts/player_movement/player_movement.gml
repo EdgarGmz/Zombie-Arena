@@ -3,7 +3,7 @@ global.mouse_anchor_x = 0;
 global.mouse_anchor_y = 0;
 
 // Declare player movement script.
-function player_movement() 
+function player_movement()
 {
 	// Set speed to 0.
 	// We increase it again below.
@@ -50,7 +50,7 @@ function player_movement()
 			{
 				// Sets the gamepads deadzone.
 			    gamepad_set_axis_deadzone(0, 0.1);
-				
+
 				// Checks if the gamepads right stick is moved.
 				if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
 				{
@@ -60,28 +60,28 @@ function player_movement()
 				}
 			}
 		}
-		
+
 		// Si W o flecha arriba están presionadas...
 		if (keyboard_check(ord("W")) || keyboard_check(vk_up))
 		{
 			// Mover hacia arriba.
 			vspeed += -10;
 		}
-	
+
 		// Si S o flecha abajo están presionadas...
 		if (keyboard_check(ord("S")) || keyboard_check(vk_down))
 		{
 			// Mover hacia abajo.
 			vspeed += 10;
 		}
-	
+
 		// Si A o flecha izquierda están presionadas...
 		if (keyboard_check(ord("A")) || keyboard_check(vk_left))
 		{
 			// Mover hacia la izquierda.
 			hspeed += -10;
 		}
-	
+
 		// Si D o flecha derecha están presionadas...
 		if (keyboard_check(ord("D")) || keyboard_check(vk_right))
 		{
@@ -115,7 +115,7 @@ function player_movement()
 			// Set sprite to the running sprite.
 			sprite_index = spr_hero_run;
 		}
-	
+
 		// Else speed is 0...
 		else
 		{

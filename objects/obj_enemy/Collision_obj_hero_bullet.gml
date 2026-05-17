@@ -25,7 +25,7 @@ if (hitpoints > 0)
 	// Set our sprite to the hit sprite.
 	sprite_index = hit_sprite;
 	image_index = 0;
-	
+
 	// Reduce hitpoints by the damage caused by the shooting weapon.
 	hitpoints -= global.shooting[? "damage"];
 

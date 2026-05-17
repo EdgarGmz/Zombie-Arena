@@ -6,22 +6,22 @@ if (!instance_exists(obj_game_over))
 	{
 		// Destroy the player.
 		with (obj_hero) instance_destroy();
-	
+
 		// Destroy any bullets.
 		with (obj_hero_bullet) instance_destroy();
-	
+
 		// Destroy the enemies.
 		with (obj_enemy) instance_destroy();
-	
+
 		// Destroy any xp pickups.
 		with (obj_collectable) instance_destroy();
-	
+
 		// Destroy any health pickups.
 		with (obj_heart) instance_destroy();
-	
+
 		// Pause all game function
 		pause();
-		
+
 		// Create game over object.
 		instance_create_layer(1920 / 2, 1080 / 2 - 150, "UpgradeScreen", obj_game_over);
 	}
@@ -36,16 +36,16 @@ if (!instance_exists(obj_upgrade) && !instance_exists(obj_template_complete))
 	{
 		// Destroy the enemies.
 		with (obj_enemy) instance_destroy();
-	
+
 		// Destroy any bullets.
 		with (obj_hero_bullet) instance_destroy();
-	
+
 		// Destroy any xp pickups.
 		with (obj_collectable) instance_destroy();
-	
+
 		// Destroy any health pickups.
 		with (obj_heart) instance_destroy();
-	
+
 		// If we are on the last wave...
 		if (global.level == 10)
 		{
@@ -56,10 +56,10 @@ if (!instance_exists(obj_upgrade) && !instance_exists(obj_template_complete))
 		{
 			// Level up!
 			global.level += 1;
-		
+
 			// Execute function to go to the next wave.
 			next_wave();
-		
+
 			// Create the upgrade screen.
 			instance_create_layer(0, 0, "Instances", obj_upgrade_screen);
 		}
@@ -71,11 +71,11 @@ if (!global.paused)
 {
 	// Reduce spawner cooldown timer.
 	spawn_enemy_cooldown--;
-	
+
 	// Checks if spawner has expired.
 	if (spawn_enemy_cooldown <= 0)
 	{
 		// Calls spawn enemy function.
-		spawn_enemy();	
+		spawn_enemy();
 	}
 }

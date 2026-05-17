@@ -6,7 +6,7 @@ global.swipe = ds_map_create();
 weapon_swipe_reset();
 
 // Define the reset function for the swipe weapon.
-function weapon_swipe_reset() 
+function weapon_swipe_reset()
 {
 	// Reset swipe weapon values.
 	ds_map_replace(global.swipe, "damage", 1);
@@ -15,7 +15,7 @@ function weapon_swipe_reset()
 }
 
 // Decalre a function to get the swipe weapon upgrades.
-function weapon_swipe_upgrades(_upgrade_list) 
+function weapon_swipe_upgrades(_upgrade_list)
 {
 	// Get wether the swipe weapon is unlocked.
 	var _unlocked = ds_map_find_value(global.swipe, "unlocked");
@@ -25,7 +25,7 @@ function weapon_swipe_upgrades(_upgrade_list)
 	{
 		// Create a map to hold the upgrade.
 		var _map = ds_map_create();
-	
+
 		// Unlock this weapon.
 		ds_map_replace(_map, "description", "Small but fast\narea of effect\nattack around\nthe player");
 		ds_map_replace(_map, "title", "UNLOCK");
@@ -34,10 +34,10 @@ function weapon_swipe_upgrades(_upgrade_list)
 		ds_map_replace(_map, "amount", 1);
 		ds_map_replace(_map, "icon", spr_arcing_attack_big);
 		ds_map_replace(_map, "weapon_name", "SWIPE");
-	
+
 		// Add upgrade to the list.
 		ds_list_add(_upgrade_list, _map);
-	
+
 		// Exit here, because there can't possibly be any other upgrades
 		// if the weapon is not unlocked.
 		exit;
@@ -51,7 +51,7 @@ function weapon_swipe_upgrades(_upgrade_list)
 	{
 		// Create a map to hold the upgrade.
 		var _map = ds_map_create();
-	
+
 		// Increase attack speed.
 		// Note that this would actually decreasing a cooldown.
 		ds_map_replace(_map, "description", "Increase Attack Speed");
@@ -61,7 +61,7 @@ function weapon_swipe_upgrades(_upgrade_list)
 		ds_map_replace(_map, "amount", -10);
 		ds_map_replace(_map, "icon", spr_arcing_attack_big);
 		ds_map_replace(_map, "weapon_name", "SWIPE");
-	
+
 		// Add upgrade to the list.
 		ds_list_add(_upgrade_list, _map);
 	}
@@ -74,7 +74,7 @@ function weapon_swipe_upgrades(_upgrade_list)
 	{
 		// Create a map to hold the upgrade.
 		var _map = ds_map_create();
-	
+
 		// Increment damage by 1.
 		ds_map_replace(_map, "description", "Increase Damage");
 		ds_map_replace(_map, "title", "DAMAGE");
@@ -83,7 +83,7 @@ function weapon_swipe_upgrades(_upgrade_list)
 		ds_map_replace(_map, "amount", 1);
 		ds_map_replace(_map, "icon", spr_arcing_attack_big);
 		ds_map_replace(_map, "weapon_name", "SWIPE");
-	
+
 		// Add upgrade to the list.
 		ds_list_add(_upgrade_list, _map);
 	}

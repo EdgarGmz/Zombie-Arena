@@ -2,7 +2,7 @@
 // If the game is not paused, decrement the counter to hide the healthbar
 if (!global.paused)
 {
-	show_healthbar--;	
+	show_healthbar--;
 }
 
 // If our healthbar timer is over 0...

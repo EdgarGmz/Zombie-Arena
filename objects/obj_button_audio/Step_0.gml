@@ -3,41 +3,41 @@ if (device_mouse_x_to_gui(0) > bbox_left && device_mouse_x_to_gui(0) < bbox_righ
 {
 	// Reduce target scale size.
 	target_scale = 0.95;
-	
+
 	// If left mouse button is pressed...
 	if (mouse_check_button_pressed(mb_left))
 	{
 		// Play click sound effect.
 		audio_play_sound(snd_click, 0, false);
-		
+
 		// Sets click state to true.
 		is_clicked = true;
-		
+
 		// Reduce target scale size further.
 		target_scale = 0.9;
 	}
-	
+
 	// Checks if mouse has been clicked on this button.
 	if (is_clicked)
 	{
 		// Reduce target scale size further.
 		target_scale = 0.9;
-		
+
 		// If left mouse button is released...
 		if (mouse_check_button_released(mb_left))
 		{
 			// Get current volume.
 			var _volume = audio_get_master_gain(0);
-	
+
 			// Toggle volume on/off.
 			audio_set_master_gain(0, !_volume);
-		}	
+		}
 	}
 }
 else
 {
 	// Reset target scale size.
-	target_scale = 1.0;	
+	target_scale = 1.0;
 }
 
 // Stores how many gamepad count.
@@ -54,10 +54,10 @@ if (_max_pads > 0)
 		{
 			// Play click sound effect.
 			audio_play_sound(snd_click, 0, false);
-	
+
 			// Get current volume.
 			var _volume = audio_get_master_gain(0);
-	
+
 			// Toggle volume on/off.
 			audio_set_master_gain(0, !_volume);
 		}

@@ -8,7 +8,7 @@ var _sound = choose(snd_pickup_1, snd_pickup_2, snd_pickup_3);
 audio_play_sound(_sound, 0, false);
 
 // With heart pickup.
-with(other) 
+with(other)
 {
 	// Destroy pickup.
 	instance_destroy();

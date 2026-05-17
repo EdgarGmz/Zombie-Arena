@@ -10,6 +10,15 @@
                 "test -f \"Zombie Arena.yyp\" && test -d objects && test -d scripts && echo \"OK: estructura base\" || (echo \"Falta estructura base\"; exit 1)"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "GML Style Check",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "tools/check_gml_style.sh"
+            ],
+            "problemMatcher": []
         }
     ]
 }

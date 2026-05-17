@@ -6,4 +6,4 @@ if(!global.paused)
 }
 
 // Draw the sprite at the appropriate height
-draw_sprite(sprite_index, 0, x, y + sin(float_timer) * 10);	
+draw_sprite(sprite_index, 0, x, y + sin(float_timer) * 10);

@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Repo Doctor",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "test -f \"Zombie Arena.yyp\" && test -d objects && test -d scripts && echo \"OK: estructura base\" || (echo \"Falta estructura base\"; exit 1)"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

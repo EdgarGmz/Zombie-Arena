@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"zombie1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":3.7939456,
+  "exportDir":"",
+  "name":"zombie1",
+  "parent":{
+    "name":"Sonidos",
+    "path":"folders/Sonidos.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"zombie1.wav",
+  "volume":1.0,
+}

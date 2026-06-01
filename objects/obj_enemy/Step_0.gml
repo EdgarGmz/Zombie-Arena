@@ -10,6 +10,6 @@ direction = point_direction(x, y, obj_hero.x, obj_hero.y);
 if(hspeed != 0)
 {
 	// Set our xscale to the sign of hspeed
-	// (can only be -1 or 1 at this point).
-	image_xscale = sign(hspeed);
+	// (can only be -1 or 1 at this point) multiplied by base_scale.
+	image_xscale = sign(hspeed) * base_scale;
 }

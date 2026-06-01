@@ -4,6 +4,9 @@ audio_play_sound(snd_music_game, 0, true);
 // Set the flag to say the game is not paused
 global.paused = false;
 
+// Habilitar disparo automático por defecto
+global.auto_shoot = true;
+
 // Set the experience goal to reach the next level.
 global.xp_goal = 10;
 

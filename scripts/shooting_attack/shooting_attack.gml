@@ -4,8 +4,8 @@ function shooting_attack()
 	// If an enemy is found...
 	if (instance_exists(nearest_enemy))
 	{
-		// Get the direction from the hero to the enemy.
-		var _direction = point_direction(x, y, nearest_enemy.x, nearest_enemy.y);
+		// Get the direction from the hero's chest to the enemy's center.
+		var _direction = point_direction(x, y - 120 * base_scale, nearest_enemy.x, nearest_enemy.y - 40);
 
 		// Get the angle we should start creating bullets aiming towards.
 		var _angle_difference = (global.shooting[? "number_of_shots"] - 1) * 20;
@@ -19,8 +19,8 @@ function shooting_attack()
 		// Repeat the following code for each bullet we need to spawn.
 		repeat (global.shooting[? "number_of_shots"])
 		{
-			// Create a bullet and assign it to temp variable _bullet.
-			var _bullet = instance_create_layer(x, y, "Instances", obj_hero_bullet);
+			// Create a bullet at chest height and assign it to temp variable _bullet.
+			var _bullet = instance_create_layer(x, y - 120 * base_scale, "Instances", obj_hero_bullet);
 
 			// Change values of the bullet...
 			with (_bullet)

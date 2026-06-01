@@ -102,7 +102,7 @@ function player_movement()
 	if (hspeed != 0)
 	{
 		// Flip sprite horizontally based on hspeed.
-		image_xscale = sign(hspeed);
+		image_xscale = sign(hspeed) * base_scale;
 	}
 
 	// If sprite is not the hit sprite,
@@ -113,7 +113,7 @@ function player_movement()
 		if (hspeed != 0 || vspeed != 0)
 		{
 			// Set sprite to the running sprite.
-			sprite_index = spr_hero_run;
+			sprite_index = spr_hero_idle_1;
 		}
 
 		// Else speed is 0...

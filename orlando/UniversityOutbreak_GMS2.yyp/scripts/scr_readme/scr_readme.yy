@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_readme",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_readme",
+  "parent":{
+    "name":"UniversityOutbreak_GMS2",
+    "path":"UniversityOutbreak_GMS2.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

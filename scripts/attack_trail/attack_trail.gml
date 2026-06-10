@@ -7,7 +7,7 @@ function attack_trail()
 		// Play sound effect.
 		audio_play_sound(snd_attack_chimes_2, 0, false);
 
-		// Create trail attack object.
-		instance_create_layer(x, y - 40, "Instances", obj_hero_trail);
+		// Create trail attack object at feet.
+		instance_create_layer(x, y, "Instances", obj_hero_trail);
 	}
 }

@@ -1,8 +1,22 @@
+// Set base scale to 0.75 (reduced by 25% to fit new background dimensions)
+base_scale = 0.75;
+image_xscale = base_scale;
+image_yscale = base_scale;
+
 // Set the maximum hitpoints that the player can have.
 hitpoints_max = 10;
 
 // Set the starting hitpoints of the player (to the max).
 hitpoints = hitpoints_max;
+
+// Inicializar el inventario de chatarra escolar para crafteo.
+inventory = {
+	reglas: 0,
+	lapices: 0,
+	tijeras: 0,
+	grapas: 0,
+	cafe: 0
+};
 
 // Variables for tracking enemies.
 nearest_enemy = undefined;
@@ -90,3 +104,5 @@ hero_trail = function()
 var _shadow = instance_create_layer(x, y, "Shadows", obj_shadow);
 // Set shadow owner.
 _shadow.owner_object = self;
+_shadow.image_xscale = base_scale;
+_shadow.image_yscale = base_scale;

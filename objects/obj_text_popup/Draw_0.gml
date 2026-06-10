@@ -9,7 +9,14 @@ draw_set_valign(fa_middle);
 draw_set_alpha(image_alpha);
 
 // Draw the text.
-draw_text(x, y, string(abs(floor(text * 100))));
+if (is_string(text))
+{
+	draw_text(x, y, text);
+}
+else
+{
+	draw_text(x, y, string(abs(floor(text * 100))));
+}
 
 // Reset text alignments
 draw_set_halign(fa_left);

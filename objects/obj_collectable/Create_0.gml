@@ -7,3 +7,6 @@ _shadow.image_xscale = 0.5;
 _shadow.image_yscale = 0.5;
 
 float_timer = 0;
+
+// Tipo de recolectable (por defecto "xp", puede ser cambiado al instanciar)
+collectable_type = "xp";

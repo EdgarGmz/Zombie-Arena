@@ -7,7 +7,7 @@ function swipe_attack()
 		// Play attack sound effect.
 		audio_play_sound(snd_attack_chimes_1, 0, false);
 
-		// Create the swipe attack object.
-		instance_create_layer(x, y, "Instances", obj_hero_swipe);
+		// Create the swipe attack object at chest height.
+		instance_create_layer(x, y - 120 * base_scale, "Instances", obj_hero_swipe);
 	}
 }

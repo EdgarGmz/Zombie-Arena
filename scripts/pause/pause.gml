@@ -1,3 +1,6 @@
+global.auto_shoot = true;      // Disparo automático
+global.dificultad = 1;         // 0: Fácil, 1: Normal, 2: Pesadilla
+
 // Not paused by default.
 global.paused = false;
 

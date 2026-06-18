@@ -1,3 +1,6 @@
+global.mapa_nocturno = false; // "false" es Día, "true" es Noche
+global.musica_on = true;
+
 // Create variables for the mouse anchor position.
 global.mouse_anchor_x = 0;
 global.mouse_anchor_y = 0;
@@ -49,7 +52,7 @@ function player_movement()
 			if (gamepad_is_connected(0))
 			{
 				// Sets the gamepads deadzone.
-			    gamepad_set_axis_deadzone(0, 0.1);
+				gamepad_set_axis_deadzone(0, 0.1);
 
 				// Checks if the gamepads right stick is moved.
 				if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
@@ -97,6 +100,34 @@ function player_movement()
 		hspeed *= 10 / _speed;
 		vspeed *= 10 / _speed;
 	}
+
+	// =========================================================================
+	// --- SISTEMA DE COLISIONES CON EDIFICIOS (AGREGADO) ---
+	// =========================================================================
+	
+	// Colisión Horizontal: Revisa si el jugador chocará en el siguiente frame en el eje X
+	if (place_meeting(x + hspeed, y, obj_collision)) 
+	{
+	    // Se acerca píxel por píxel hasta tocar la pared perfectamente
+	    while (!place_meeting(x + sign(hspeed), y, obj_collision)) 
+		{
+	        x += sign(hspeed);
+	    }
+	    hspeed = 0; // Detiene la velocidad horizontal
+	}
+
+	// Colisión Vertical: Revisa si el jugador chocará en el siguiente frame en el eje Y
+	if (place_meeting(x, y + vspeed, obj_collision)) 
+	{
+	    // Se acerca píxel por píxel hasta tocar la pared perfectamente
+	    while (!place_meeting(x, y + sign(vspeed), obj_collision)) 
+		{
+	        y += sign(vspeed);
+	    }
+	    vspeed = 0; // Detiene la velocidad vertical
+	}
+	
+	// =========================================================================
 
 	// If hspeed does not equal 0...
 	if (hspeed != 0)

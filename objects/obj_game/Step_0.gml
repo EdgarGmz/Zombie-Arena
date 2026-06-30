@@ -46,10 +46,23 @@ if (!instance_exists(obj_upgrade) && !instance_exists(obj_template_complete))
 		// Destroy any health pickups.
 		with (obj_heart) instance_destroy();
 
-		// If we are on the last wave...
-		if (global.level == 10)
+		// Si se alcanzó la oleada objetivo para ganar el nivel seleccionado
+		var _target_wave = 10;
+		if (variable_global_exists("win_wave")) {
+			_target_wave = global.win_wave;
+		}
+		
+		if (global.level >= _target_wave)
 		{
-			// Create the upgrade screen.
+			// Desbloquear el siguiente nivel si ganamos el nivel actual
+			if (variable_global_exists("selected_level")) {
+				var _curr_unlocked = level_load_unlocked();
+				if (global.selected_level == _curr_unlocked && _curr_unlocked < 5) {
+					level_save_unlocked(_curr_unlocked + 1);
+				}
+			}
+
+			// Create the template/level complete screen.
 			instance_create_layer(1920 / 2, 1080 / 2, "UpgradeScreen", obj_template_complete);
 		}
 		else

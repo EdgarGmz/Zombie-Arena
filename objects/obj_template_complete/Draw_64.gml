@@ -20,14 +20,30 @@ draw_set_font(fnt_large);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-// Draw game over text.
-draw_text(x, y - 10, string("WELL DONE"));
+// Draw victory text.
+var _titulo = "¡BIEN HECHO!";
+var _subtitulo = "Has completado la demo del juego.";
+
+if (variable_global_exists("selected_level")) {
+	_titulo = "¡NIVEL " + string(global.selected_level) + " COMPLETADO!";
+	if (global.selected_level < 5) {
+		if (level_can_play(global.selected_level + 1)) {
+			_subtitulo = "¡Nivel " + string(global.selected_level + 1) + " desbloqueado! Pulsa SIGUIENTE para continuar.";
+		} else {
+			_subtitulo = "¡Has desbloqueado el Nivel " + string(global.selected_level + 1) + "!";
+		}
+	} else {
+		_subtitulo = "¡Sobreviviste a la Integradora Final! ¡Felicidades!";
+	}
+}
+
+draw_text(x, y - 10, _titulo);
 
 // Set font.
 draw_set_font(fnt_small_medium);
 
-// Draw game over text.
-draw_text(x, y + 30, string("You have completed the template!"));
+// Draw subtitulo text.
+draw_text(x, y + 35, _subtitulo);
 
 // Reset text alignments
 draw_set_halign(fa_left);

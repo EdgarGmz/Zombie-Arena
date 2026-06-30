@@ -29,8 +29,13 @@ if (device_mouse_x_to_gui(0) > bbox_left && device_mouse_x_to_gui(0) < bbox_righ
 			// Play click sound effect.
 			audio_play_sound(snd_ui_select, 0, false);
 
-			// Go to main game room.
-			room_goto(rm_game);
+			// Spawn the level select menu on Instances layer
+			instance_create_layer(0, 0, "Instances", obj_level_select);
+
+			// Destroy existing menu buttons
+			with (obj_button_start) instance_destroy();
+			with (obj_button_quit) instance_destroy();
+			with (obj_button_audio) instance_destroy();
 		}
 	}
 }
@@ -55,8 +60,13 @@ if (_max_pads > 0)
 			// Play click sound effect.
 			audio_play_sound(snd_ui_select, 0, false);
 
-			// Go to main game room.
-			room_goto(rm_game);
+			// Spawn the level select menu on Instances layer
+			instance_create_layer(0, 0, "Instances", obj_level_select);
+
+			// Destroy existing menu buttons
+			with (obj_button_start) instance_destroy();
+			with (obj_button_quit) instance_destroy();
+			with (obj_button_audio) instance_destroy();
 		}
 	}
 }

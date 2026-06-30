@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pigun_walk",
-    "path":"sprites/spr_pigun_walk/spr_pigun_walk.yy",
+    "name":"spr_zombie_runner_walk",
+    "path":"sprites/spr_zombie_runner_walk/spr_zombie_runner_walk.yy",
   },
   "spriteMaskId":null,
   "visible":true,

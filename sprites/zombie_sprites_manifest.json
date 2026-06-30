@@ -1,0 +1,77 @@
+[
+  {
+    "name": "spr_zombie_basico_walk",
+    "path": "sprites/spr_zombie_basico_walk/spr_zombie_basico_walk.yy",
+    "frame_count": 7
+  },
+  {
+    "name": "spr_zombie_basico_attack",
+    "path": "sprites/spr_zombie_basico_attack/spr_zombie_basico_attack.yy",
+    "frame_count": 6
+  },
+  {
+    "name": "spr_zombie_basico_hit",
+    "path": "sprites/spr_zombie_basico_hit/spr_zombie_basico_hit.yy",
+    "frame_count": 4
+  },
+  {
+    "name": "spr_zombie_runner_walk",
+    "path": "sprites/spr_zombie_runner_walk/spr_zombie_runner_walk.yy",
+    "frame_count": 4
+  },
+  {
+    "name": "spr_zombie_runner_attack",
+    "path": "sprites/spr_zombie_runner_attack/spr_zombie_runner_attack.yy",
+    "frame_count": 3
+  },
+  {
+    "name": "spr_zombie_runner_hit",
+    "path": "sprites/spr_zombie_runner_hit/spr_zombie_runner_hit.yy",
+    "frame_count": 4
+  },
+  {
+    "name": "spr_zombie_tank_walk",
+    "path": "sprites/spr_zombie_tank_walk/spr_zombie_tank_walk.yy",
+    "frame_count": 4
+  },
+  {
+    "name": "spr_zombie_tank_attack",
+    "path": "sprites/spr_zombie_tank_attack/spr_zombie_tank_attack.yy",
+    "frame_count": 2
+  },
+  {
+    "name": "spr_zombie_tank_hit",
+    "path": "sprites/spr_zombie_tank_hit/spr_zombie_tank_hit.yy",
+    "frame_count": 3
+  },
+  {
+    "name": "spr_zombie_toxic_walk",
+    "path": "sprites/spr_zombie_toxic_walk/spr_zombie_toxic_walk.yy",
+    "frame_count": 3
+  },
+  {
+    "name": "spr_zombie_toxic_attack",
+    "path": "sprites/spr_zombie_toxic_attack/spr_zombie_toxic_attack.yy",
+    "frame_count": 2
+  },
+  {
+    "name": "spr_zombie_toxic_hit",
+    "path": "sprites/spr_zombie_toxic_hit/spr_zombie_toxic_hit.yy",
+    "frame_count": 4
+  },
+  {
+    "name": "spr_zombie_boss_walk",
+    "path": "sprites/spr_zombie_boss_walk/spr_zombie_boss_walk.yy",
+    "frame_count": 4
+  },
+  {
+    "name": "spr_zombie_boss_attack",
+    "path": "sprites/spr_zombie_boss_attack/spr_zombie_boss_attack.yy",
+    "frame_count": 2
+  },
+  {
+    "name": "spr_zombie_boss_hit",
+    "path": "sprites/spr_zombie_boss_hit/spr_zombie_boss_hit.yy",
+    "frame_count": 2
+  }
+]

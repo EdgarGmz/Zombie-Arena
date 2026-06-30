@@ -7,9 +7,20 @@ depth = -y;
 direction = point_direction(x, y, obj_hero.x, obj_hero.y);
 
 // If horizontal speed is NOT 0.
-if(hspeed != 0)
+if (hspeed != 0)
 {
 	// Set our xscale to the sign of hspeed
 	// (can only be -1 or 1 at this point) multiplied by base_scale.
 	image_xscale = sign(hspeed) * base_scale;
+}
+
+// Keep the walk cycle frame so returning from attack/hit looks smoother.
+if (anim_state == "walk")
+{
+	walk_frame = floor(image_index);
+
+	if (sprite_index != walk_sprite)
+	{
+		enemy_play_walk(true);
+	}
 }

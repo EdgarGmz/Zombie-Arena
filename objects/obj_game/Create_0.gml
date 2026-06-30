@@ -16,13 +16,21 @@ global.xp = 0;
 // Set the current level.
 global.level = 1;
 
-// Set the cooldown time for spawning enemies.
-global.enemy_spawn_speed = 60;
+// Set the cooldown time for spawning enemies, scaling with difficulty.
+var _spawn_speed = 60;
+if (variable_global_exists("dificultad")) {
+	if (global.dificultad == 0) _spawn_speed = 75;
+	else if (global.dificultad == 2) _spawn_speed = 45;
+}
+global.enemy_spawn_speed = _spawn_speed;
 
-// Set starting enemy health bonus.
-// This is a multiplier, and is increased each wave.
-// Result: enemy hp = enemy base hp * health bonus.
-global.enemy_health_bonus = 1;
+// Set starting enemy health bonus, scaling with difficulty.
+var _health_bonus = 1.0;
+if (variable_global_exists("dificultad")) {
+	if (global.dificultad == 0) _health_bonus = 0.7;
+	else if (global.dificultad == 2) _health_bonus = 1.4;
+}
+global.enemy_health_bonus = _health_bonus;
 
 // Create the hero in the center of the room.
 instance_create_layer(room_width / 2, room_height / 2, "Instances", obj_hero);
@@ -73,9 +81,25 @@ spawn_enemy = function()
 	// If we are over level 4...
 	if (global.level > 4)
 	{
-		// Change the enemy type to either
-		// pigun, pumpkill or rooster.
+		// Change the enemy type to runner, basico or tank zombie.
 		_enemy = choose(obj_pigun, obj_pumpkill, obj_rooster);
+	}
+
+	// If we are over level 6...
+	if (global.level > 6)
+	{
+		// Add toxic zombie to the spawn pool.
+		_enemy = choose(obj_pigun, obj_pumpkill, obj_rooster, obj_zombie_toxic);
+	}
+
+	// If we are over level 9...
+	if (global.level > 9)
+	{
+		// Rare chance to spawn the boss zombie.
+		if (irandom(9) == 0)
+		{
+			_enemy = obj_zombie_boss;
+		}
 	}
 
 	// We want to spawn enemyes around the player.

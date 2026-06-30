@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_rooster_walk",
-    "path":"sprites/spr_rooster_walk/spr_rooster_walk.yy",
+    "name":"spr_zombie_tank_walk",
+    "path":"sprites/spr_zombie_tank_walk/spr_zombie_tank_walk.yy",
   },
   "spriteMaskId":null,
   "visible":true,

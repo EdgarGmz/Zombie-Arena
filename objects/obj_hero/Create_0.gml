@@ -1,5 +1,5 @@
-// Set base scale to 0.75 (reduced by 25% to fit new background dimensions)
-base_scale = 0.75;
+// Set base scale to 0.5625 (reduced by another 25% from 0.75)
+base_scale = 0.5625;
 image_xscale = base_scale;
 image_yscale = base_scale;
 

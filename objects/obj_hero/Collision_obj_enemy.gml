@@ -19,13 +19,10 @@ if (sprite_index != spr_hero_hit)
 	// With the enemy...
 	with (other)
 	{
-		// Check if enemy is walking pigun.
-		if (sprite_index == spr_pigun_walk)
+		// Start the attack animation when touching the hero.
+		if (anim_state == "walk")
 		{
-			// Change to attack sprite.
-			sprite_index = attack_sprite;
-			// Reset image index.
-			image_index = 0;
+			enemy_play_attack();
 		}
 	}
 }

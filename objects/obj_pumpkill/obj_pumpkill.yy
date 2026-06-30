@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_pumpkill_walk",
-    "path":"sprites/spr_pumpkill_walk/spr_pumpkill_walk.yy",
+    "name":"spr_zombie_basico_walk",
+    "path":"sprites/spr_zombie_basico_walk/spr_zombie_basico_walk.yy",
   },
   "spriteMaskId":null,
   "visible":true,

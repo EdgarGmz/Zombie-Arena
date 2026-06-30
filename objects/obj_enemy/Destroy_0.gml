@@ -30,8 +30,18 @@ if (_drop == obj_collectable)
 	}
 	else if (object_index == obj_rooster)
 	{
-		// Personal Administrativo Zombie: Tijera
+		// Zombie tanque: Tijera
 		_type = "tijera";
+	}
+	else if (object_index == obj_zombie_toxic)
+	{
+		// Zombie tóxico: Grapa
+		_type = "grapa";
+	}
+	else if (object_index == obj_zombie_boss)
+	{
+		// Jefe zombie: Café
+		_type = "cafe";
 	}
 	
 	_inst.collectable_type = _type;

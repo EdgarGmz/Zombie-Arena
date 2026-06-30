@@ -22,9 +22,8 @@ if (hitpoints > 0)
 	// Set text to damage amount.
 	_text.text = -global.shooting[? "damage"];
 
-	// Set our sprite to the hit sprite.
-	sprite_index = hit_sprite;
-	image_index = 0;
+	// Play the hit reaction animation.
+	enemy_play_hit();
 
 	// Reduce hitpoints by the damage caused by the shooting weapon.
 	hitpoints -= global.shooting[? "damage"];

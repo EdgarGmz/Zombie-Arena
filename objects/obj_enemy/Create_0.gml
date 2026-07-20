@@ -36,6 +36,15 @@ walk_frame = 0;
 
 enemy_play_walk = function(_preserve_frame = true)
 {
+	// Guard: already walking with the right sprite.
+	if (anim_state == "walk" && sprite_index == walk_sprite)
+	{
+		exit;
+	}
+	
+	var _prev_xscale = image_xscale;
+	var _prev_yscale = image_yscale;
+	
 	anim_state = "walk";
 	sprite_index = walk_sprite;
 	image_speed = 1;
@@ -52,6 +61,10 @@ enemy_play_walk = function(_preserve_frame = true)
 	{
 		image_index = 0;
 	}
+	
+	// Restore scale so the sprite doesn't jump/flip on transition.
+	image_xscale = _prev_xscale;
+	image_yscale = _prev_yscale;
 };
 
 enemy_play_attack = function()
@@ -66,10 +79,17 @@ enemy_play_attack = function()
 		walk_frame = floor(image_index);
 	}
 
+	var _prev_xscale = image_xscale;
+	var _prev_yscale = image_yscale;
+	
 	anim_state = "attack";
 	sprite_index = attack_sprite;
 	image_index = 0;
 	image_speed = 1;
+	
+	// Restore scale so the sprite doesn't jump/flip on transition.
+	image_xscale = _prev_xscale;
+	image_yscale = _prev_yscale;
 };
 
 enemy_play_hit = function()
@@ -84,8 +104,15 @@ enemy_play_hit = function()
 		walk_frame = floor(image_index);
 	}
 
+	var _prev_xscale = image_xscale;
+	var _prev_yscale = image_yscale;
+	
 	anim_state = "hit";
 	sprite_index = hit_sprite;
 	image_index = 0;
 	image_speed = 1;
+	
+	// Restore scale so the sprite doesn't jump/flip on transition.
+	image_xscale = _prev_xscale;
+	image_yscale = _prev_yscale;
 };

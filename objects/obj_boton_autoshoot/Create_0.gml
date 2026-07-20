@@ -1,2 +1,8 @@
+// Variable used for clicked state.
+is_clicked = false;
+
+// Variable used for button scaling.
+target_scale = 1.0;
+
+// Stop animation speed.
 image_speed = 0;
-image_index = global.auto_shoot ? 1 : 0; // Se ajusta al valor actual

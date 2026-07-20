@@ -46,3 +46,12 @@ add_button(1320, 690, 100, 100, "5", 5, "level");
 // 4. Acción (Jugar / Volver)
 add_button(960, 890, 300, 80, "¡SOBREVIVIR!", "play", "action");
 add_button(150, 90, 180, 60, "VOLVER", "back", "action");
+
+// --- BOTONES DE CONFIGURACIÓN REGISTRADOS EN LA INTERFAZ ---
+// Los alineamos a la izquierda aprovechando el formato de 1920x1080
+add_button(120, 380, 180, 80, "AUTO SHOOT", "autoshoot_toggle", "config");
+
+// --- CREACIÓN DE BOTONES FÍSICOS EN LA GUI --
+
+// Creamos el botón de autodisparo un poco más abajo (X: 120, Y: 380)
+instance_create_layer(120, 380, "Instances", obj_boton_autoshoot);

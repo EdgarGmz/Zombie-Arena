@@ -36,6 +36,7 @@ if (device_mouse_x_to_gui(0) > bbox_left && device_mouse_x_to_gui(0) < bbox_righ
 			with (obj_button_start) instance_destroy();
 			with (obj_button_quit) instance_destroy();
 			with (obj_button_audio) instance_destroy();
+			with (obj_boton_autoshoot) instance_destroy();
 		}
 	}
 }
@@ -67,6 +68,7 @@ if (_max_pads > 0)
 			with (obj_button_start) instance_destroy();
 			with (obj_button_quit) instance_destroy();
 			with (obj_button_audio) instance_destroy();
+			with (obj_boton_autoshoot) instance_destroy();
 		}
 	}
 }

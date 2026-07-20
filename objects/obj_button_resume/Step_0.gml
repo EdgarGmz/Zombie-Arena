@@ -31,6 +31,9 @@ if (device_mouse_x_to_gui(0) > bbox_left && device_mouse_x_to_gui(0) < bbox_righ
 
 			// Destroy pause screen object.
 			with(obj_pause_screen) instance_destroy();
+			
+			// Destruir el botón de audio al reanudar el juego
+			with (obj_button_audio) instance_destroy();
 
 			// Call the unpause function.
 			unpause();
@@ -73,6 +76,9 @@ if (_max_pads > 0)
 			// Destroy resume button.
 			with(obj_button_resume) instance_destroy();
 
+			// Destroy autoshoot button.
+			with(obj_boton_autoshoot) instance_destroy();
+
 			// Reset pause buttons released state.
 			obj_pause_button.has_released = false;
 
@@ -96,6 +102,9 @@ if (has_released && keyboard_check(vk_escape))
 
 	// Destroy resume button.
 	with(obj_button_resume) instance_destroy();
+
+	// Destroy autoshoot button.
+	with(obj_boton_autoshoot) instance_destroy();
 
 	// Reset pause buttons released state.
 	obj_pause_button.has_released = false;

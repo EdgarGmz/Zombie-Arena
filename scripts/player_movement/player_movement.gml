@@ -42,25 +42,18 @@ function player_movement()
 	// If left mouse button is NOT held down...
 	else
 	{
-		// Stores how many gamepad count.
-		var _max_pads = gamepad_get_device_count();
-
-		// Checks when at least 1 gamepad is present.
-		if (_max_pads > 0)
+		// Checks the gamepad is connected.
+		if (gamepad_is_connected(0))
 		{
-			// Checks the gamepad is connected.
-			if (gamepad_is_connected(0))
-			{
-				// Sets the gamepads deadzone.
-				gamepad_set_axis_deadzone(0, 0.1);
+			// Sets the gamepads deadzone.
+			gamepad_set_axis_deadzone(0, 0.1);
 
-				// Checks if the gamepads right stick is moved.
-				if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
-				{
-					// Adds movement speed to player based on left stick input.
-					vspeed += 10 * gamepad_axis_value(0, gp_axislv);
-					hspeed += 10 * gamepad_axis_value(0, gp_axislh);
-				}
+			// Checks if the gamepads right stick is moved.
+			if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
+			{
+				// Adds movement speed to player based on left stick input.
+				vspeed += 10 * gamepad_axis_value(0, gp_axislv);
+				hspeed += 10 * gamepad_axis_value(0, gp_axislh);
 			}
 		}
 
@@ -104,29 +97,29 @@ function player_movement()
 	// =========================================================================
 	// --- SISTEMA DE COLISIONES CON EDIFICIOS (AGREGADO) ---
 	// =========================================================================
-	
+
 	// Colisión Horizontal: Revisa si el jugador chocará en el siguiente frame en el eje X
-	if (place_meeting(x + hspeed, y, obj_collision)) 
+	if (place_meeting(x + hspeed, y, obj_collision))
 	{
-	    // Se acerca píxel por píxel hasta tocar la pared perfectamente
-	    while (!place_meeting(x + sign(hspeed), y, obj_collision)) 
+		// Se acerca píxel por píxel hasta tocar la pared perfectamente
+		while (!place_meeting(x + sign(hspeed), y, obj_collision))
 		{
-	        x += sign(hspeed);
-	    }
-	    hspeed = 0; // Detiene la velocidad horizontal
+			x += sign(hspeed);
+		}
+		hspeed = 0; // Detiene la velocidad horizontal
 	}
 
 	// Colisión Vertical: Revisa si el jugador chocará en el siguiente frame en el eje Y
-	if (place_meeting(x, y + vspeed, obj_collision)) 
+	if (place_meeting(x, y + vspeed, obj_collision))
 	{
-	    // Se acerca píxel por píxel hasta tocar la pared perfectamente
-	    while (!place_meeting(x, y + sign(vspeed), obj_collision)) 
+		// Se acerca píxel por píxel hasta tocar la pared perfectamente
+		while (!place_meeting(x, y + sign(vspeed), obj_collision))
 		{
-	        y += sign(vspeed);
-	    }
-	    vspeed = 0; // Detiene la velocidad vertical
+			y += sign(vspeed);
+		}
+		vspeed = 0; // Detiene la velocidad vertical
 	}
-	
+
 	// =========================================================================
 
 	// If hspeed does not equal 0...

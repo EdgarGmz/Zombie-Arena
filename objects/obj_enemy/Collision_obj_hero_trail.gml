@@ -13,13 +13,13 @@ if (hitpoints > 0 && anim_state != "hit")
 	show_healthbar = 60;
 
 	// Reduce hitpoints by the damage caused by the trail weapon.
-	hitpoints -= global.trail[? "damage"];
+	hitpoints -= global.trail.damage;
 
 	// Create text popup to indicate damage.
 	var _text = instance_create_layer(x, y, "UpgradeScreen", obj_text_popup);
 
 	// Set text to the damage amount.
-	_text.text = -global.trail[? "damage"];
+	_text.text = -global.trail.damage;
 
 	// Play the hit reaction animation.
 	enemy_play_hit();

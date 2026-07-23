@@ -1,5 +1,5 @@
 // Checks if the game is paused.
-if(!global.paused)
+if (!global.paused)
 {
 	// Add to the timer to make the float effect
 	float_timer += delta_time * 0.000001 * 10;
@@ -25,6 +25,9 @@ switch (collectable_type)
 		_colour = make_color_rgb(211, 84, 0);    // Naranja oscuro/café
 		break;
 }
+
+// Draw the shadow sprite first.
+draw_sprite_ext(spr_shadow, 0, x, y, 0.5, 0.5, 0, c_white, 0.5);
 
 // Draw the sprite at the appropriate height with color blending
 draw_sprite_ext(sprite_index, 0, x, y + sin(float_timer) * 10, 1, 1, 0, _colour, 1);

@@ -20,13 +20,13 @@ if (hitpoints > 0)
 	var _text = instance_create_layer(x, y, "UpgradeScreen", obj_text_popup);
 
 	// Set text to damage amount.
-	_text.text = -global.shooting[? "damage"];
+	_text.text = -global.shooting.damage;
 
 	// Play the hit reaction animation.
 	enemy_play_hit();
 
 	// Reduce hitpoints by the damage caused by the shooting weapon.
-	hitpoints -= global.shooting[? "damage"];
+	hitpoints -= global.shooting.damage;
 
 	// If our hitpoints has reached zero...
 	if (hitpoints <= 0)

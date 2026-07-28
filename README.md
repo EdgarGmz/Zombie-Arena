@@ -14,6 +14,8 @@ Universidad Tecnológica Santa Catarina · Agosto 2026
 </div>
 
 ---
+[![Ver Gameplay de Zombies Arena](https://img.youtube.com/vi/0e7NcmTmKkU/hqdefault.jpg)](https://www.youtube.com/watch?v=0e7NcmTmKkU)
+
 
 ## 📖 Descripción
 

@@ -40,24 +40,17 @@ else
 	target_scale = 1.0;
 }
 
-// Stores how many gamepad count.
-var _max_pads = gamepad_get_device_count();
-
-// Checks when at least 1 gamepad is present.
-if (_max_pads > 0)
+// Checks the gamepad is connected.
+if (gamepad_is_connected(0))
 {
-	// Checks the gamepad is connected.
-	if (gamepad_is_connected(0))
+	// Checks if gamepad button has been pressed.
+	if (gamepad_button_check_pressed(0, gp_select))
 	{
-		// Checks if gamepad button has been pressed.
-		if (gamepad_button_check_pressed(0, gp_select))
-		{
-			// Play click sound effect.
-			audio_play_sound(snd_ui_select, 0, false);
+		// Play click sound effect.
+		audio_play_sound(snd_ui_select, 0, false);
 
-			// Go to the main menu.
-			room_goto(rm_menu);
-		}
+		// Go to the main menu.
+		room_goto(rm_menu);
 	}
 }
 

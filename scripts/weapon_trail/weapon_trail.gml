@@ -1,89 +1,70 @@
-// Create a map assigned to global.trail.
-global.trail = ds_map_create();
-
-// Call the function to reset the trail weapon.
-// First time, this essentially setps it up.
-weapon_trail_reset();
+// Initialize the trail weapon data struct.
+global.trail = {
+	damage: 1,
+	attack_speed: 90,
+	unlocked: false
+};
 
 // Define the reset function for the trail weapon.
 function weapon_trail_reset()
 {
-	// Unlock weapon upgrade.
-	ds_map_replace(global.trail, "damage", 1);
-	ds_map_replace(global.trail, "attack_speed", 90);
-	ds_map_replace(global.trail, "unlocked", false);
+	global.trail.damage = 1;
+	global.trail.attack_speed = 90;
+	global.trail.unlocked = false;
 }
 
 // Define function to retrieve upgrades for the trail weapon.
 function weapon_trail_upgrades(_upgrade_list)
 {
-	// Get wether the trail weapon is unlocked.
-	var _unlocked = ds_map_find_value(global.trail, "unlocked");
+	var _unlocked = global.trail.unlocked;
 
-	// If it is NOT unlocked...
 	if (!_unlocked)
 	{
-		// Create map to store upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Large but slow\narea of effect\nattack around\nthe player",
+			title: "UNLOCK",
+			object: global.trail,
+			key: "unlocked",
+			amount: 1,
+			icon: spr_trail_attack_big,
+			weapon_name: "TRAIL"
+		};
 
-		// Upgrade to unlock the trail weapon.
-		ds_map_replace(_map, "description", "Large but slow\narea of effect\nattack around\nthe player");
-		ds_map_replace(_map, "title", "UNLOCK");
-		ds_map_replace(_map, "object", global.trail);
-		ds_map_replace(_map, "key", "unlocked");
-		ds_map_replace(_map, "amount", 1);
-		ds_map_replace(_map, "icon", spr_trail_attack_big);
-		ds_map_replace(_map, "weapon_name", "TRAIL");
-
-		// Add upgrade to the list.
-		ds_list_add(_upgrade_list, _map);
-
-		// Exits the event.
+		array_push(_upgrade_list, _struct);
 		exit;
 	}
 
-	// Get the current trail weapon attack speed.
-	var _attack_speed = ds_map_find_value(global.trail, "attack_speed");
+	var _attack_speed = global.trail.attack_speed;
 
-	// If attack speed is over 30...
-	// Note this is a cooldown, so higher is slower.
 	if (_attack_speed > 30)
 	{
-		// Create map to store upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Increase Attack Speed",
+			title: "SPEED",
+			object: global.trail,
+			key: "attack_speed",
+			amount: -15,
+			icon: spr_trail_attack_big,
+			weapon_name: "TRAIL"
+		};
 
-		// Upgrade to increase attack speed.
-		ds_map_replace(_map, "description", "Increase Attack Speed");
-		ds_map_replace(_map, "title", "SPEED");
-		ds_map_replace(_map, "object", global.trail);
-		ds_map_replace(_map, "key", "attack_speed");
-		ds_map_replace(_map, "amount", -15);
-		ds_map_replace(_map, "icon", spr_trail_attack_big);
-		ds_map_replace(_map, "weapon_name", "TRAIL");
-
-		// Add upgrade to the list.
-		ds_list_add(_upgrade_list, _map);
+		array_push(_upgrade_list, _struct);
 	}
 
-	// Get current trail weapon damage.
-	var _damage = ds_map_find_value(global.trail, "damage");
+	var _damage = global.trail.damage;
 
-	// If damage is under 5...
 	if (_damage < 5)
 	{
-		// Create map to store upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Increase Damage",
+			title: "DAMAGE",
+			object: global.trail,
+			key: "damage",
+			amount: 1,
+			icon: spr_trail_attack_big,
+			weapon_name: "TRAIL"
+		};
 
-		// Upgrade from increasing trail weapon damage.
-		ds_map_replace(_map, "description", "Increase Damage");
-		ds_map_replace(_map, "title", "DAMAGE");
-		ds_map_replace(_map, "object", global.trail);
-		ds_map_replace(_map, "key", "damage");
-		ds_map_replace(_map, "amount", 1);
-		ds_map_replace(_map, "icon", spr_trail_attack_big);
-		ds_map_replace(_map, "weapon_name", "TRAIL");
-
-		// Add upgrade to the list.
-		ds_list_add(_upgrade_list, _map);
+		array_push(_upgrade_list, _struct);
 	}
 }

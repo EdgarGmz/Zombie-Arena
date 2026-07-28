@@ -2,80 +2,68 @@
 // the glow effect on the card when drawing.
 mouse_over = false;
 
-// Stores how many gamepad count.
-var _max_pads = gamepad_get_device_count();
-
-// Checks when at least 1 gamepad is present.
-if (_max_pads > 0)
+// Checks the gamepad is connected.
+if (gamepad_is_connected(0))
 {
-	// Checks the gamepad is connected.
-	if (gamepad_is_connected(0))
-	{
-		// Sets the gamepads deadzone.
-		gamepad_set_axis_deadzone(0, 0.5);
+	// Sets the gamepads deadzone.
+	gamepad_set_axis_deadzone(0, 0.5);
 
-		// Checks if the gamepads left stick is moved.
-		if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
+	// Checks if the gamepads left stick is moved.
+	if (gamepad_axis_value(0, gp_axislv) != 0 || gamepad_axis_value(0, gp_axislh) != 0)
+	{
+		// Checks if the upgrade is on the left side.
+		if (x < 1920 / 2)
 		{
-			// Checks if the upgrade is on the left side.
-			if (x < 1920 / 2)
+			// Checks if the controller axis is pointing left.
+			if (gamepad_axis_value(0, gp_axislh) < -0.5)
 			{
-				// Checks if the controller axis is pointing left.
-				if (gamepad_axis_value(0, gp_axislh) < -0.5)
-				{
-					// Sets the upgrade to glow.
-					mouse_over = true;
-					// Tells the other upgrades a controller has been used.
-					global.is_mouse = false;
-				}
+				// Sets the upgrade to glow.
+				mouse_over = true;
+				// Tells the other upgrades a controller has been used.
+				global.is_mouse = false;
 			}
-			// Checks if on the right side.
-			else if (x > 1920 / 2)
+		}
+		// Checks if on the right side.
+		else if (x > 1920 / 2)
+		{
+			// Checks if the controller axis is pointing right.
+			if (gamepad_axis_value(0, gp_axislh) > 0.5)
 			{
-				// Checks if the controller axis is pointing right.
-				if (gamepad_axis_value(0, gp_axislh) > 0.5)
-				{
-					// Sets the upgrade to glow.
-					mouse_over = true;
-					// Tells the other upgrades a controller has been used.
-					global.is_mouse = false;
-				}
-			}
-			else
-			{
-				// Checks if the controller is pointing up.
-				if (gamepad_axis_value(0, gp_axislv) < -0.5)
-				{
-					// Checks if controller is not pointing too much left or right
-					if (gamepad_axis_value(0, gp_axislh) > -0.5 && gamepad_axis_value(0, gp_axislh) < 0.5)
-					{
-						// Sets the upgrade to glow.
-						mouse_over = true;
-						// Tells the other upgrades a controller has been used.
-						global.is_mouse = false;
-					}
-				}
+				// Sets the upgrade to glow.
+				mouse_over = true;
+				// Tells the other upgrades a controller has been used.
+				global.is_mouse = false;
 			}
 		}
 		else
 		{
-			// Tells variable controller isn't being used.
-			global.is_mouse = true;
-		}
-
-		// Checks if gamepad button has been pressed.
-		if (gamepad_button_check_pressed(0, gp_face1))
-		{
-			// Upgrade has detected a click.
-			is_clicked = true;
-			// Click was done with gamepad.
-			gamepad_bypass = true;
+			// Checks if the controller is pointing up.
+			if (gamepad_axis_value(0, gp_axislv) < -0.5)
+			{
+				// Checks if controller is not pointing too much left or right
+				if (gamepad_axis_value(0, gp_axislh) > -0.5 && gamepad_axis_value(0, gp_axislh) < 0.5)
+				{
+					// Sets the upgrade to glow.
+					mouse_over = true;
+					// Tells the other upgrades a controller has been used.
+					global.is_mouse = false;
+				}
+			}
 		}
 	}
 	else
 	{
-		// Tells upgrades no controllers available.
+		// Tells variable controller isn't being used.
 		global.is_mouse = true;
+	}
+
+	// Checks if gamepad button has been pressed.
+	if (gamepad_button_check_pressed(0, gp_face1))
+	{
+		// Upgrade has detected a click.
+		is_clicked = true;
+		// Click was done with gamepad.
+		gamepad_bypass = true;
 	}
 }
 else
@@ -132,12 +120,12 @@ if (mouse_over)
 			audio_play_sound(snd_ui_select, 0, false);
 
 			// Set variables for upgrade stats.
-			var _object = ds_map_find_value(upgrade_data, "object");
-			var _key = ds_map_find_value(upgrade_data, "key");
-			var _amount = ds_map_find_value(upgrade_data, "amount");
+			var _object = upgrade_data.object;
+			var _key = upgrade_data.key;
+			var _amount = upgrade_data.amount;
 
 			// Upgrade components stats.
-			_object[? _key] += _amount;
+			_object[$ _key] += _amount;
 
 			// Destroys upgrades.
 			with(obj_upgrade) instance_destroy();

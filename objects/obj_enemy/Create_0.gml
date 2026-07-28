@@ -23,12 +23,7 @@ speed = 4;
 // Create variable to show/hide the healthbar.
 show_healthbar = 0;
 
-// Create shadow object to follow.
-var _shadow = instance_create_layer(x, y, "Shadows", obj_shadow);
-// Set shadow owner.
-_shadow.owner_object = self;
-_shadow.image_xscale = base_scale;
-_shadow.image_yscale = base_scale;
+
 
 // Animation state for smoother transitions between walk, attack and hit.
 anim_state = "walk";
@@ -41,10 +36,10 @@ enemy_play_walk = function(_preserve_frame = true)
 	{
 		exit;
 	}
-	
+
 	var _prev_xscale = image_xscale;
 	var _prev_yscale = image_yscale;
-	
+
 	anim_state = "walk";
 	sprite_index = walk_sprite;
 	image_speed = 1;
@@ -61,7 +56,7 @@ enemy_play_walk = function(_preserve_frame = true)
 	{
 		image_index = 0;
 	}
-	
+
 	// Restore scale so the sprite doesn't jump/flip on transition.
 	image_xscale = _prev_xscale;
 	image_yscale = _prev_yscale;
@@ -81,12 +76,12 @@ enemy_play_attack = function()
 
 	var _prev_xscale = image_xscale;
 	var _prev_yscale = image_yscale;
-	
+
 	anim_state = "attack";
 	sprite_index = attack_sprite;
 	image_index = 0;
 	image_speed = 1;
-	
+
 	// Restore scale so the sprite doesn't jump/flip on transition.
 	image_xscale = _prev_xscale;
 	image_yscale = _prev_yscale;
@@ -106,12 +101,12 @@ enemy_play_hit = function()
 
 	var _prev_xscale = image_xscale;
 	var _prev_yscale = image_yscale;
-	
+
 	anim_state = "hit";
 	sprite_index = hit_sprite;
 	image_index = 0;
 	image_speed = 1;
-	
+
 	// Restore scale so the sprite doesn't jump/flip on transition.
 	image_xscale = _prev_xscale;
 	image_yscale = _prev_yscale;

@@ -12,13 +12,13 @@ if (hitpoints > 0 && anim_state != "hit")
 	show_healthbar = 60;
 
 	// Reduce hitpoints by the damaged caused by the swipe weapon.
-	hitpoints -= global.swipe[? "damage"];
+	hitpoints -= global.swipe.damage;
 
 	// Create text popup to indicate damage.
 	var _text = instance_create_layer(x, y, "UpgradeScreen", obj_text_popup);
 
 	// Set text to damage caused.
-	_text.text = -global.swipe[? "damage"];
+	_text.text = -global.swipe.damage;
 
 	// Play the hit reaction animation.
 	enemy_play_hit();

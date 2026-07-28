@@ -1,3 +1,9 @@
+// Toggle fullscreen with F11 or Alt+Enter.
+if (keyboard_check_pressed(vk_f11) || (keyboard_check(vk_alt) && keyboard_check_pressed(vk_enter)))
+{
+	window_set_fullscreen(!window_get_fullscreen());
+}
+
 // If the game is NOT over...
 if (!instance_exists(obj_game_over))
 {

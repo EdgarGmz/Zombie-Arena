@@ -1,113 +1,89 @@
-// Create map to store the shooting weapon data.
-global.shooting = ds_map_create();
-
-// Call function to reset the shooting weapon state.
-weapon_shooting_reset();
+// Initialize the shooting weapon data struct.
+global.shooting = {
+	damage: 0.75,
+	attack_speed: 30,
+	number_of_shots: 1,
+	unlocked: true
+};
 
 // Define the function to reset the shooting weapon state.
 function weapon_shooting_reset()
 {
-	// Shooting weapon bases stats.
-	// Shooting weapon starts unlocked as it's the first weapon.
-	ds_map_replace(global.shooting, "damage", 0.75);
-	ds_map_replace(global.shooting, "attack_speed", 30);
-	ds_map_replace(global.shooting, "number_of_shots", 1);
-	ds_map_replace(global.shooting, "unlocked", true);
+	global.shooting.damage = 0.75;
+	global.shooting.attack_speed = 30;
+	global.shooting.number_of_shots = 1;
+	global.shooting.unlocked = true;
 }
 
-// Define function to retrieve list of available shooting
-// weapon upgrades.
+// Define function to retrieve list of available shooting weapon upgrades.
 function weapon_shooting_upgrades(_upgrade_list)
 {
-	// Get wether the shooting weapon is unlocked.
-	var _unlocked = ds_map_find_value(global.shooting, "unlocked");
+	var _unlocked = global.shooting.unlocked;
 
-	// If the shooting weapon is NOT unlocked...
 	if (!_unlocked)
 	{
-		// Create map to strore the upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Unlock Shooting\nWeapon",
+			title: "UNLOCK",
+			object: global.shooting,
+			key: "unlocked",
+			amount: 1,
+			icon: spr_shooting_attack_big,
+			weapon_name: "PROJECTILE"
+		};
 
-		// Upgrade to unlock shooting weapon.
-		ds_map_replace(_map, "description", "Unlock Shooting\nWeapon");
-		ds_map_replace(_map, "title", "UNLOCK");
-		ds_map_replace(_map, "object", global.shooting);
-		ds_map_replace(_map, "key", "unlocked");
-		ds_map_replace(_map, "amount", 1);
-		ds_map_replace(_map, "icon", spr_shooting_attack_big);
-		ds_map_replace(_map, "weapon_name", "PROJECTILE");
-
-		// Add upgrade to list.
-		ds_list_add(_upgrade_list, _map);
-
-		// Exits the event.
+		array_push(_upgrade_list, _struct);
 		exit;
 	}
 
-	// Get current shooting weapon attack speed.
-	var _attack_speed = ds_map_find_value(global.shooting, "attack_speed");
+	var _attack_speed = global.shooting.attack_speed;
 
-	// If attack speed is over 5...
 	if (_attack_speed > 5)
 	{
-		// Create map to strore the upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Increase Attack Speed",
+			title: "SPEED",
+			object: global.shooting,
+			key: "attack_speed",
+			amount: -5,
+			icon: spr_shooting_attack_big,
+			weapon_name: "PROJECTILE"
+		};
 
-		// Upgrade to increase attack speed of shooting weapon.
-		ds_map_replace(_map, "description", "Increase Attack Speed");
-		ds_map_replace(_map, "title", "SPEED");
-		ds_map_replace(_map, "object", global.shooting);
-		ds_map_replace(_map, "key", "attack_speed");
-		ds_map_replace(_map, "amount", -5);
-		ds_map_replace(_map, "icon", spr_shooting_attack_big);
-		ds_map_replace(_map, "weapon_name", "PROJECTILE");
-
-		// Add upgrade to list.
-		ds_list_add(_upgrade_list, _map);
+		array_push(_upgrade_list, _struct);
 	}
 
-	// Get the current number of shots...
-	var _number_of_shots = ds_map_find_value(global.shooting, "number_of_shots");
+	var _number_of_shots = global.shooting.number_of_shots;
 
-	// If the number of shots is under 7...
 	if (_number_of_shots < 7)
 	{
-		// Create map to strore the upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Number of shots +2",
+			title: "BARRAGE",
+			object: global.shooting,
+			key: "number_of_shots",
+			amount: 2,
+			icon: spr_shooting_attack_big,
+			weapon_name: "PROJECTILE"
+		};
 
-		// Upgrade to increase the number of shots
-		// from the shooting weapon.
-		ds_map_replace(_map, "description", "Number of shots +2");
-		ds_map_replace(_map, "title", "BARRAGE");
-		ds_map_replace(_map, "object", global.shooting);
-		ds_map_replace(_map, "key", "number_of_shots");
-		ds_map_replace(_map, "amount", 2);
-		ds_map_replace(_map, "icon", spr_shooting_attack_big);
-		ds_map_replace(_map, "weapon_name", "PROJECTILE");
-
-		// Add upgrade to list.
-		ds_list_add(_upgrade_list, _map);
+		array_push(_upgrade_list, _struct);
 	}
 
-	// Get current shooting weapon damage.
-	var _damage = ds_map_find_value(global.shooting, "damage");
+	var _damage = global.shooting.damage;
 
-	// If damage is under 4...
 	if (_damage < 4)
 	{
-		// Create map to strore the upgrade.
-		var _map = ds_map_create();
+		var _struct = {
+			description: "Increase Damage",
+			title: "DAMAGE",
+			object: global.shooting,
+			key: "damage",
+			amount: 0.4,
+			icon: spr_shooting_attack_big,
+			weapon_name: "PROJECTILE"
+		};
 
-		// Upgrade to increase damage.
-		ds_map_replace(_map, "description", "Increase Damage");
-		ds_map_replace(_map, "title", "DAMAGE");
-		ds_map_replace(_map, "object", global.shooting);
-		ds_map_replace(_map, "key", "damage");
-		ds_map_replace(_map, "amount", 0.4);
-		ds_map_replace(_map, "icon", spr_shooting_attack_big);
-		ds_map_replace(_map, "weapon_name", "PROJECTILE");
-
-		// Add upgrade to list.
-		ds_list_add(_upgrade_list, _map);
+		array_push(_upgrade_list, _struct);
 	}
 }

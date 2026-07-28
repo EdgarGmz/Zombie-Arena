@@ -34,10 +34,10 @@ hero_shoot = function()
 	if (nearest_distance < 1000)
 	{
 		// Reset the cooldown for this weapon.
-		hero_shoot_cooldown = max(global.shooting[? "attack_speed"], 1);
+		hero_shoot_cooldown = max(global.shooting.attack_speed, 1);
 
 		// If this weapon is unlocked...
-		if (global.shooting[? "unlocked"])
+		if (global.shooting.unlocked)
 		{
 			// Execute the function to handle this weapon.
 			shooting_attack();
@@ -58,10 +58,10 @@ hero_swipe = function()
 	if (nearest_distance < 250)
 	{
 		// Reset the cooldown for this weapon.
-		hero_swipe_cooldown = max(global.swipe[? "attack_speed"], 1);
+		hero_swipe_cooldown = max(global.swipe.attack_speed, 1);
 
 		// If this weapon is unlocked...
-		if (global.swipe[? "unlocked"])
+		if (global.swipe.unlocked)
 		{
 			// Execute the function that handles this weapon.
 			swipe_attack();
@@ -79,19 +79,18 @@ hero_swipe = function()
 hero_trail = function()
 {
 	// If the nearest enemy is within 300 pixels...
-	if(nearest_distance < 300)
+	if (nearest_distance < 300)
 	{
 		// Reset the cooldown for this weapon.
-		hero_trail_cooldown = max(global.trail[? "attack_speed"], 1);
+		hero_trail_cooldown = max(global.trail.attack_speed, 1);
 
 		// If this weapon is unlocked...
-		if(global.trail[? "unlocked"])
+		if (global.trail.unlocked)
 		{
 			// Execute the function that handles the weapon.
 			attack_trail();
 		}
 	}
-
 	// The nearest enemy is too far away, but we don't want to fully reset the cooldown...
 	else
 	{
@@ -99,10 +98,3 @@ hero_trail = function()
 		hero_trail_cooldown = 1;
 	}
 }
-
-// Create shadow object to follow.
-var _shadow = instance_create_layer(x, y, "Shadows", obj_shadow);
-// Set shadow owner.
-_shadow.owner_object = self;
-_shadow.image_xscale = base_scale;
-_shadow.image_yscale = base_scale;

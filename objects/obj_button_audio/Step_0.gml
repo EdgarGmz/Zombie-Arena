@@ -1,3 +1,9 @@
+// Toggle fullscreen with F11 or Alt+Enter.
+if (keyboard_check_pressed(vk_f11) || (keyboard_check(vk_alt) && keyboard_check_pressed(vk_enter)))
+{
+	window_set_fullscreen(!window_get_fullscreen());
+}
+
 // If mouse is over this instance, adjusting for the GUI layer...
 if (device_mouse_x_to_gui(0) > bbox_left && device_mouse_x_to_gui(0) < bbox_right && device_mouse_y_to_gui(0) > bbox_top && device_mouse_y_to_gui(0) < bbox_bottom)
 {
@@ -40,27 +46,20 @@ else
 	target_scale = 1.0;
 }
 
-// Stores how many gamepad count.
-var _max_pads = gamepad_get_device_count();
-
-// Checks when at least 1 gamepad is present.
-if (_max_pads > 0)
+// Checks the gamepad is connected.
+if (gamepad_is_connected(0))
 {
-	// Checks the gamepad is connected.
-	if (gamepad_is_connected(0))
+	// Checks if gamepad button has been pressed.
+	if (gamepad_button_check_pressed(0, gp_face4))
 	{
-		// Checks if gamepad button has been pressed.
-		if (gamepad_button_check_pressed(0, gp_face4))
-		{
-			// Play click sound effect.
-			audio_play_sound(snd_click, 0, false);
+		// Play click sound effect.
+		audio_play_sound(snd_click, 0, false);
 
-			// Get current volume.
-			var _volume = audio_get_master_gain(0);
+		// Get current volume.
+		var _volume = audio_get_master_gain(0);
 
-			// Toggle volume on/off.
-			audio_set_master_gain(0, !_volume);
-		}
+		// Toggle volume on/off.
+		audio_set_master_gain(0, !_volume);
 	}
 }
 
